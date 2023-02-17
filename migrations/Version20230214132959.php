@@ -20,16 +20,16 @@ final class Version20230214132959 extends AbstractMigration
     public function up(Schema $schema): void
     {
         // this up() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE product ADD categories_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE product ADD CONSTRAINT FK_D34A04ADA21214B7 FOREIGN KEY (categories_id) REFERENCES category (id)');
-        $this->addSql('CREATE INDEX IDX_D34A04ADA21214B7 ON product (categories_id)');
+        $this->addSql('ALTER TABLE product.html.twig ADD categories_id INT DEFAULT NULL');
+        $this->addSql('ALTER TABLE product.html.twig ADD CONSTRAINT FK_D34A04ADA21214B7 FOREIGN KEY (categories_id) REFERENCES category (id)');
+        $this->addSql('CREATE INDEX IDX_D34A04ADA21214B7 ON product.html.twig (categories_id)');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
-        $this->addSql('ALTER TABLE product DROP FOREIGN KEY FK_D34A04ADA21214B7');
-        $this->addSql('DROP INDEX IDX_D34A04ADA21214B7 ON product');
-        $this->addSql('ALTER TABLE product DROP categories_id');
+        $this->addSql('ALTER TABLE product.html.twig DROP FOREIGN KEY FK_D34A04ADA21214B7');
+        $this->addSql('DROP INDEX IDX_D34A04ADA21214B7 ON product.html.twig');
+        $this->addSql('ALTER TABLE product.html.twig DROP categories_id');
     }
 }
