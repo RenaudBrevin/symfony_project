@@ -38,14 +38,20 @@ class AppFixtures extends Fixture
             $manager->persist($category);
         }
 
+        $categoryRepository = $manager->getRepository(Category::class);
+        $category = $categoryRepository->findAll();
+
+
         for ($i = 0; $i < 200; $i++) {
             $product = new Product();
             $product->setName('Product ' . $i);
             $product->setImageUrl('https://picsum.photos/' . rand(1, 999));
-            $product->setDescription('Description ' . $i);
+            $product->setDescription('Lorem ipsum dolor sit amet, consectetur adipiscing elit. Description ' . $i);
             $product->setStock(rand(0, 200));
             $product->setPrice(rand(0, 10)/10 + rand(1, 20));
-            $product->setCategories($manager->getRepository(Category::class)->find(rand(1, 10)));
+            #Provisoir ( $category est vide )
+            #$product->setCategory($category[rand(0, 9)]);
+
             $manager->persist($product);
         }
 

@@ -3,6 +3,13 @@
 {% block title %}Boutique{% endblock %}
 
 {% block body %}
+    <div>
+        <span>Trier par catégorie :</span>
+        <a href="{{ path('app_app') }}" class="linkProduct">Tous les produits</a>
+        {% for category in categories %}
+            <a href="{{ path('app_categories', {'id': category.id}) }}" class="linkProduct">{{ category.name }}</a>
+        {% endfor %}
+    </div>
     <div class="allProduct">
         {% for product in products %}
             <div class="product">

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello SortCategoriesController!{% endblock %}
+
+{% block body %}
+    {% for product in products %}
+            <div class="allProduct">
+                {% for product in products %}
+                    {% if product.categories_id == id %}
+                    <div class="product">
+                        <h2>{{ product.name }}</h2>
+                        <img src="{{ product.imageUrl }}" alt="image" width="200" height="200">
+                        <p>{{ product.price }}0 €</p>
+                        <p>Il reste {{ product.stock }} produits</p>
+                        <a href="{{ path('app_info_product', {'id': product.id})  }}" class="linkProduct">Voir le produit</a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
